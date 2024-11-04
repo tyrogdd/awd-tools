@@ -320,6 +320,7 @@ killtorjan() {
     # elif [[ $finService = "httpd" ]]; then
     #     serUser="httpd"
     # fi
+
     echo "<?php system('whoami');" > "$webPath/.conf.php"
     local serUser=$(curl -s "http://127.0.0.1/.conf.php")
     logs "web服务用户名为: $serUser" 0
