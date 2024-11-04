@@ -251,7 +251,7 @@ findevil() {
                "preg_replace('/.*$/e" "base64_decode")
     local isBlack=false
     for func in "${blacklist[@]}"; do
-        evilFunc=$(grep -rn "$func" "$webPath")
+        local evilFunc=$(grep -rn "$func" "$webPath")
         if [[ -n "$evilFunc" ]]; then
             isBlack=true
             logs "危险函数为:\n$evilFunc" -1
