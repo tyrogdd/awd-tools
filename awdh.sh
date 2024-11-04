@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#todo
-##空格问题
-#if匹配最后一个字
-#自己输入配置文件
-#数据库版本不同命令不同
+#Author: gdd
+#Email: gdd@cumt.edu.cn
+#Date: 2024-11-1
+#Filename: awdh.sh
+#Description: The small script of AWD match
 
 LOG_FILE="./awdh.log"
 REQUIRE_FILE='./requirement.yml'
