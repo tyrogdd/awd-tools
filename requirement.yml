@@ -1,0 +1,8 @@
+database: my_database
+username: admin
+dbUser:  
+dbPassOld:  
+dbPassNew: 123456
+userPass: 123456
+webPath: /var/www/html
+whitelist: 127.0.0.1 127.0.0.2
