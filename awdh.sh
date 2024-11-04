@@ -139,6 +139,7 @@ backupall() {
         # /var/www/html/*
         tar -zcvf ~/backup.tar.gz "$webPath" &>> $LOG_FILE
         logs "文件夹备份成功！" 0
+        echo "文件夹备份成功！"
     elif [ -f $webPath ]; then
         logs "这是一个文件而不是web文件目录!" 2
     else
@@ -157,6 +158,7 @@ backupall() {
     mysqldump -u$dbUser --password="$dbPassOld" --all-databases --skip-lock-tables > ~/backup.sql
     if [ $? -eq 0 ]; then
         logs "数据库备份成功！" 0
+        echo "数据库备份成功！"
     else
         logs "数据库备份失败！" 1
     fi
@@ -168,6 +170,7 @@ changeall() {
     echo "$userPass" | passwd $(whoami) --stdin &>> $LOG_FILE
     if [ $? -eq 0 ]; then
         logs "用户密码修改成功！" 0
+        echo "用户密码修改成功！"
     else
         logs "用户密码修改失败！" 1
     fi
@@ -181,9 +184,11 @@ changeall() {
     mysqladmin -u$dbUser -p$dbPassOld password $dbPassNew
     if [ $? -eq 0 ]; then
         logs "用户密码修改成功！" 0
+        echo "用户密码修改成功！"
     else
         logs "用户密码修改失败！" 1
     fi
+    echo "切记要修改web应用对应的数据库密码!!!"
     logs "切记要修改web应用对应的数据库密码!!!" -1 
 }
 
@@ -331,6 +336,7 @@ killtorjan() {
     curl "http://127.0.0.1/.conf.php" &>> $LOG_FILE
     if [[ -z $(ps -aux | grep "$serUser") ]]; then
         logs "克制不死马成功！" 0
+        echo "克制不死马成功！" 
     else
         logs "克制不死马失败！" 1
     fi
