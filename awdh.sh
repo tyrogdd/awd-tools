@@ -265,7 +265,7 @@ findevil() {
 }
 
 # 生成指定长度的随机字符串
-random() {
+random_string() {
     local length=${1:-16}
     tr -dc 'A-Za-z0-9' < /dev/urandom | head -c ${length}
 }
